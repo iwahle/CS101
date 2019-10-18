@@ -1,0 +1,18 @@
+CS101 Meeting Notes 10/18/19
+- try classifying inclination as well
+- figure out how to get mass
+- checkpoint oct30
+- next week:
+	- get larger dataset
+	- get mass
+	- get temporal data
+	- classifying on spin x inclination, coarser bins
+	- put together gallery
+	- try unbiased clustering
+	- 2D harmonics as basis set to reconstruct on first
+		- linear combination of orthogonal components with noise
+		- F1 = sum fi Ki
+		- F2 = sum gi Ki
+		- orthogonality: if fi !=0, gi = 0, and vice versa
+		- Iab = FT(aF1 + bF2)
+
