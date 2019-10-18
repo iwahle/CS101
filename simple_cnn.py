@@ -2,47 +2,50 @@
 # imports
 
 from keras.models import Sequential
-from keras.layers import Conv2d, Dense, Flatten, MaxPooling2D
-from keras.losses import cross_entropy
+from keras.layers import Conv2D, Dense, Flatten, MaxPooling2D
+from keras.losses import sparse_categorical_crossentropy
 from keras.optimizers import SGD
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-
+import numpy as np
 
 # load data 
 
-# TODO
-X = []
-y = []
+path = "/Users/imanwahle/Desktop/CS101/"
+tmp = np.load(path + "X.npy")
+X = np.zeros((tmp.shape[0], tmp.shape[1], tmp.shape[2], 1))
+X[:,:,:,0] = np.load(path + "X.npy")
+y = np.load(path + "y.npy").astype(int)
+n_classes = len(np.unique(y))
 
 # define training and validation sets
-x_train, y_train, x_test, y_test = train_test_split(X, 
+x_train, x_test, y_train, y_test = train_test_split(X, 
 													y, 
 													test_size=0.25, 
 													random_state=42)
 
-
 # model definition
 
 model = Sequential()
-model.add(Conv2D(32, kernel_size=(3, 3), strides=(1, 1),
-                 activation='relu', input_shape=input_shape))
+model.add(Conv2D(32, kernel_size=(3, 3), activation='relu', input_shape=(100,100,1)))
 model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 model.add(Conv2D(64, (3, 3), activation='relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
+model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 model.add(Flatten())
 model.add(Dense(1000, activation='relu'))
-model.add(Dense(num_classes, activation='softmax'))
+model.add(Dense(n_classes, activation='softmax'))
+
 
 
 # training
 
-model.compile(loss=cross_entropy,
+model.compile(loss=sparse_categorical_crossentropy,
               optimizer=SGD(lr=0.01),
-              metrics=['accuracy'])
+              metrics=['sparse_categorical_accuracy'])
 
-batch_size = ?
-epochs = ?
+model.summary()
+batch_size = 32
+epochs = 10
 model.fit(x_train, y_train,
           batch_size=batch_size,
           epochs=epochs,
