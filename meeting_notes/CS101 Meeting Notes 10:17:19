@@ -1,0 +1,23 @@
+CS101 Meeting Notes 10/17/19
+- tried opening oifits data (turns out we don't need oifits, since it's for
+generating the actual simultions)
+	from oitools import *
+	oidata = oifits.open('../../staticBlackhole/targetImgs/blackhole-01-05.fits')
+	oidata.info()
+
+
+Questions to ask:
+Are we using images or videos?
+	Yes, we should try both
+Are we doing classification or regression? (would be the latter for mass and spin)
+	We should stick with classes because the changfes might be too little (but within each class, the variation in the images is quite large). And with both parameters at once. 
+	But maybe regression 
+What features we’re looking for?	
+	Spin and inclination since they're what we have right now
+How many images/how much data do we have to train on?
+	890 (89 * 100)
+
+Other methods:
+Look at neurons → maximum response in the input image (instead of reconstructing the images)
+
+Use autoencoder -> outputting the same black hole images as the input, with a dimensional representation (bin it), artificially put in small encoding for mass 1

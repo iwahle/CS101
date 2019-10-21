@@ -1,0 +1,26 @@
+Explainability methods:
+
+-Tried out LIME, seems to be really slow (?)
+(LIME seems to be able to be used directly for our case with CNNs. treats the
+model as a black box and learns an interpretable version around a local area
+(Code: https://github.com/marcotcr/lime
+Paper: https://www.kdd.org/kdd2016/papers/files/rfp0573-ribeiroA.pdf))
+
+- try next: Skater
+https://github.com/oracle/Skater/blob/master/examples/image_interpretability/mnist_cnn_keras.ipynb
+
+
+- we should use one of the models that people have built, if we're sticking to
+standard classification things. no need to reinvent the wheel / they've already
+been tested on standard datasets
+
+- good overview of many different methods: https://arxiv.org/pdf/1802.00614.pdf
+
+- another overview: https://arxiv.org/pdf/1806.00069.pdf
+
+ones that I find particularly interesting:
+Interpretable Explanations of Black Boxes by Meaningful Perturbation https://www.robots.ox.ac.uk/~vgg/publications/2017/Fong17/fong17.pdf
+Understanding Black-box Predictions via Influence Functions http://proceedings.mlr.press/v70/koh17a/koh17a.pdf
+
+-this paper talks about how to build CNNs such that the model is inherently explainable, 
+http://openaccess.thecvf.com/content_cvpr_2018/papers/Zhang_Interpretable_Convolutional_Neural_CVPR_2018_paper.pdf
