@@ -32,3 +32,8 @@ def load_data(spin_samp_rate=1, incl_samp_rate=1, verbose=True):
     y_data = np.array(y)
     
     return X_data, y_data
+
+if __name__ == "__main__": 
+    X_data, y_data = load_data()
+    np.save("X_data.npy",X_data)
+    np.save("y_data.npy",y_data)
