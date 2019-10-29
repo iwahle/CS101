@@ -1,0 +1,6 @@
+Meeting Notes 10/25
+- backprop in CNN look for spin and inclination variance
+- autencoder down to two nodes, vary spin/incl
+- can artificially vary datset as something to predict 
+- kmeans 2d binning 
+- add on github: klbouman
