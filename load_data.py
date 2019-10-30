@@ -6,8 +6,8 @@ import numpy as np
 
 
 def load_data(spin_samp_rate=1, incl_samp_rate=1, verbose=True):
-    spins = np.arange(0,101,spin_samp_rate)
-    incls = np.arange(0,90,incl_samp_rate)
+    spins = np.arange(0,2,spin_samp_rate)
+    incls = np.arange(0,2,incl_samp_rate)
 
     urlfoldname = "http://vlbiimaging.csail.mit.edu/static/data/targetImgs/sgraBroderick/"
 
@@ -32,3 +32,8 @@ def load_data(spin_samp_rate=1, incl_samp_rate=1, verbose=True):
     y_data = np.array(y)
     
     return X_data, y_data
+
+if __name__ == "__main__": 
+    X_data, y_data = load_data()
+    np.save("X_data.npy",X_data)
+    np.save("y_data.npy",y_data)
