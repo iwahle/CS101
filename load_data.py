@@ -6,18 +6,18 @@ import numpy as np
 
 
 def load_data(spin_samp_rate=1, incl_samp_rate=1, verbose=True):
-    spins = np.arange(0,2,spin_samp_rate)
-    incls = np.arange(0,2,incl_samp_rate)
+    spins = np.arange(0,101,spin_samp_rate)
+    incls = np.arange(0,90,incl_samp_rate)
 
     urlfoldname = "http://vlbiimaging.csail.mit.edu/static/data/targetImgs/sgraBroderick/"
 
     X = []
     y = []
-
-    for spin in spins:
+    
+    for incl in incls:
         if verbose:
-            print('loading spin %03d %d incl images....'%(spin, len(incls)))
-        for incl in incls:
+            print('loading incl %03d, %d spin images....'%(incl, len(spins)))
+        for spin in spins:
             imname = 'pmap_bs_%03d_%03d_2.png'%(spin,incl)
             url = urlfoldname + imname
             try:
