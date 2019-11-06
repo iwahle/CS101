@@ -66,8 +66,15 @@ def load_data_fits(spin_samp_rate=1, incl_samp_rate=1, verbose=True):
 
             X.append(img)
             y.append([spin, incl])
+
+    os.remove("tmp.fits")
+    X_data = np.array(X)
+    y_data = np.array(y)
     
     return X_data, y_data
+
+# delete tmp.fits !!!!!
+# push code!!!
 
 if __name__ == "__main__": 
     #X_data, y_data = load_data()
