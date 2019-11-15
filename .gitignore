@@ -3,3 +3,4 @@ __pycache__
 .ipynb_checkpoints
 X_data_fits.npy
 y_data_fits.npy
+X_data_fits_jitter.npy
